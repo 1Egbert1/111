@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8" />
+		<title></title>
+		<style type="text/css">
+			* {
+				margin: 0px;
+				padding: 0px;
+			}
+			body,html
+			{
+				width: 100%;
+				height: 100%;
+				align-items: center;
+				
+			}
+			ul {
+				width: 48em;				
+				list-style: none;
+				position: relative;
+				margin: 0px auto;
+				display: block;
+			}
+			
+			li {
+				height: 12em;
+				width: 12em;
+				position: absolute;
+				top: 0em;
+				left: 0em;
+				z-index: 10;
+				
+				
+			}
+			li:after{
+				content: "";
+				height:100%;
+				width: 100%;
+				display: block;
+				border: 1.0em solid red;
+				border-radius: 6em;
+				box-sizing: border-box;
+			}
+			li.blue {
+				top: 0em;
+				left: 0em;
+			}
+			
+			li.blue:after {
+				border-color: rgb(1, 134, 198);
+			}
+			
+			li.blue.new {
+				z-index: 30;
+			}
+			li.blue.new:after{
+				border-color: rgb(1, 134, 198) rgb(1, 134, 198) transparent rgb(1, 134, 198);
+			}
+			li.yellow {
+				top: 5.7em;
+				left: 6.8em;
+			}
+			
+			li.yellow:after {
+				border-color: yellow;
+			}
+			
+			li.yellow.new {
+				z-index: 12;
+			}
+			li.yellow.new:after{
+				border-color: yellow transparent yellow yellow;  
+			} 
+			li.black {
+				top: 0em;
+				left: 13.6em;
+			}
+			
+			li.black:after {
+				border-color: black;
+			}
+			
+			li.black.new {
+				z-index: 10;
+			}
+			
+			li.green {
+				top: 5.7em;
+				left: 20.4em;
+				z-index: 9;
+			}
+			
+			li.green:after {
+				border-color: green;
+			}
+			
+			li.green.new {
+				z-index: 15;
+			}
+			li.green.new:after{
+				border-color: green transparent green transparent;
+			}
+			li.red {
+				top: 0em;
+				left: 27.2em;
+				z-index: 8px;
+			}
+			
+			li.red:after {
+				border-color: red;
+			}
+		</style>
+	</head>
+
+	<body>
+		<ul>
+			<li class="blue"></li>
+			<li class="blue new"></li>
+			<li class="yellow"></li>
+			<li class="yellow new"></li>
+			<li class="black"></li>
+			<li class="green"></li>
+			<li class="green new"></li>
+			<li class="red"></li>
+		</ul>
+	</body>
+
+</html>

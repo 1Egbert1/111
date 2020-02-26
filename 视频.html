@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8" />
+		<title></title>
+		<style type="text/css">
+			body{
+				background-color: #808080;
+			}
+			.wrap {
+				margin: 100px auto;
+				width: 800px;
+				position: relative;
+			}
+			.progress {
+				width: 800px;
+				background-color: gray;
+			}
+			
+			.precent {
+				width: 0px;
+				height: 4px;
+				background-color: lightblue;
+			}
+			.point{
+				height: 4px;
+				width: 4px;
+				box-sizing: border-box;
+				border-radius: 2px;
+				z-index: 100;
+			}
+			#volume-contol{
+			position: relative;
+			display: inline-block;
+			right: 99px;
+			top: -29px;
+			float: right;
+			font-size: 16px;
+			cursor: pointer;
+			}
+			#fullScreen {
+				position: absolute;
+				width: 20px;
+				height: 20px;
+				font-size: 16px;
+				right: 12px;
+				top: 454px;
+				cursor: pointer;
+			}
+			#volume{
+				position: absolute;
+				width: 30px;
+				height: 30px;
+				font-size: 32px;
+				right: 252px;
+				top: 454px;
+				cursor: pointer;
+			}
+			.danmu{
+				
+				position: absolute;
+				left: 100%;
+				top: 30px;
+				white-space: nowrap;
+				transition: all 6s linear;
+				font-size: 1.2em;
+				font-weight: 700;
+				/*font-family: arial,helvetica,sans-serif;*/
+			}
+			.danmu.active{
+				left: -1000px;
+			}
+		</style>
+	</head>
+
+	<body>
+		<!--1.怎么引入视频-->
+		<!--//2.怎么播放视频-->
+
+		<div class="wrap">
+			<video src="img/街道办GDC、欧阳耀莹 - 春娇与志明.mp3" id="video" width="800px"></video>
+			<div class="control-bar">
+				<div class="time-display">
+					<span id="current"></span>
+					<span id="duration"></span>
+				</div>
+				<div class="progress">
+					<div class="precent" id="precent">
+						<div class="point"></div>
+					</div>
+				</div>
+				<input type="range" id="volume-contol" >
+				<img src="img/音量 (2).png" id="volume"/>
+				<img src="img/全屏.png"  id="fullScreen">
+				<div class="danmu">
+					<div class="active">
+						
+					</div>
+				</div>
+				
+			</div>
+			<script type="text/javascript">
+				var video = document.getElementById('video')
+				var wrap = document.getElementsByClassName('wrap')[0]
+				var currentTimeDisplay = document.getElementById('current')
+				var durationDisplay = document.getElementById('duration')
+				var percentElement= document.getElementById('precent')
+				var volumeControl= document.getElementById('volume-contol')
+				var secondsToMins = function(seconds) {
+					seconds = parseInt(seconds)
+					var min = parseInt(seconds / 60)
+					min = min > 9 ? min : '0' + min
+					var s = seconds % 60
+					s = s > 9 ? s : '0' + s
+					var mins = min + ':' + s
+					return mins
+				}
+				currentTimeDisplay.innerHTML = secondsToMins(video.currentTime)
+
+
+				//canplay可以播放
+				video.addEventListener('canplay', function() {
+					console.log('canplay 事件触发')
+					console.log(video.duration)
+					durationDisplay.innerHTML = secondsToMins(video.duration)
+				})
+				//canplaythrough浏览器认为可以流畅播放全部视频
+				video.addEventListener('canplaythrough', function() {
+					console.log('canplaythrough 事件触发')
+				})
+				video.addEventListener('playing', function() {
+					console.log('playing 事件触发')
+				})
+				video.addEventListener('pause', function() {
+					console.log('pause 事件触发')
+				})
+				video.addEventListener('timeupdate', function() {
+					console.log('timeupdate 事件触发')
+					console.log(video.currentTime)
+					currentTimeDisplay.innerHTML = secondsToMins(video.currentTime)
+					var precent = getPrecent()
+					setPercent(precent)
+				})
+				var getPrecent = function() {
+					return video.currentTime / video.duration;
+				}
+				var setPercent = function(percent) {
+					percentElement.style.width = percent * 1000 + 'px'
+				}
+				volumeControl.addEventListener('change',function(){
+					var v=parseInt(this.value)/100
+					video.volume=v
+				})
+				fullScreen.addEventListener('click',function(){
+					video.webkitRequestFullScreen()
+				})
+				var isPlaying = false
+				video.addEventListener('click', function() {
+					if(isPlaying) {
+						video.pause()
+						isPlaying = false
+					} else {
+						video.play()
+						isPlaying = true
+					}
+				})
+				var danmuList=[
+				{
+					time:1000,
+					content:'大家都看过这个电影吗?'
+				},
+				{
+					time:2000,
+					content:'都感觉这部电影怎么样啊?'
+				},
+				{
+					time:10000,
+					content:'看了杨千嬅吸烟才发现女生吸烟也可以这么帅气!'
+				}
+				]
+				var orderDanmu=function(){
+					danmuList.sort(function(a,b){
+						return a.time-b.time
+					})
+				}
+				orderDanmu()
+				var sendDanmu=function(content){
+					var p=document.createElement('p')
+					p.className='danmu'
+					p.style.top=Math.random()*300+'px'
+					p.innerHTML=content
+					wrap.appendChild(p)
+					setTimeout(function(){
+						p.className='danmu active'
+					},100)
+					setTimeout(function(){
+						wrap.removeChild(p)
+					},6000)
+				}
+				var progressDanmu=function(){
+					if(danmuList[0]&&danmuList[0].time-video.currentTime*600<300){
+						sendDanmu(danmuList.shift().content)
+					}
+				}
+			</script>
+	</body>
+
+</html>

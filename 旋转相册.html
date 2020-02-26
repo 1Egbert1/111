@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title>旋转相册</title>
+		<style type="text/css">
+			* {
+				margin: 0px;
+				padding: 0px;
+			}
+			
+			html {
+				background-image: url('./images/相册背景.jpg');
+			position: absolute;
+			top: 0;
+			left: 0;
+			width: 100%;
+			height: 100%;
+			min-width: 700px;
+			z-index: -10;
+			zoom: 1;
+			background-repeat: no-repeat;
+			background-size: cover;
+			-webkit-background-size: cover;
+			-o-background-size: cover;
+			background-position: center 0;
+		
+				overflow: hidden;
+			}
+			p {
+				width: 1200px;
+				height: 1200px;
+				transform: rotateX(90deg);
+				top: 100%;
+				left:50%;
+				border-radius:50%;
+				position: absolute;
+				background-color:rgba(122,122,122,0.6) ;
+				/*background:-webkit-radial-gradient(center center,600px 600px,rgba(122,122,122,0.6), rgba(0,0,0,0));*/
+				margin-left: -500px;
+				margin-top: -600px;
+				
+			}
+			.my-container {
+				width: 100%;
+				height: 300px;
+				margin: 0px auto;
+				margin-top: 200px;
+				
+			}
+			
+			.photo {
+				height: 100%;
+				width: 200px;
+				perspective: 1200px;
+				perspective-origin: 100px -400px;
+				animation: view 6s ease infinite  6s;
+				margin: 0px auto;
+				
+			}
+			/*.photo:hover{
+				animation-play-state: paused ;
+			}*/
+			@keyframes view {
+				from {
+					perspective-origin: 100px -400px;
+				}
+				to {
+					perspective-origin: 100px -200px;
+				}
+			}
+			
+			.container {
+				height: 100%;
+				width: 100%;
+				transform-style: preserve-3d;
+				position: relative;
+				margin: 0px auto;
+				animation: xuanzhuan 6s  infinite alternate 6s;
+				animation-timing-function: ease;
+				
+			}
+			/*.container:hover{
+				animation-play-state:paused ;
+			}*/
+			@keyframes xuanzhuan {
+				from {
+					transform: rotateY(0deg);
+				}
+				to {
+					transform: rotateY(-360deg);
+				}
+			}
+			
+			img {
+				height: 300px;
+				width: 200px;
+				display: block;
+				margin: 0px auto;
+				border-radius: 20px;
+			}
+			
+			.img {
+				height: 300px;
+				width: 200px;
+				position: absolute;
+				border-radius: 20px;
+				background-color: transparent;
+				box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.4);
+			}
+			
+			.img1 {
+				
+				transform: translateZ(0px);
+				animation: zhuan1 6s linear forwards;
+			}
+			
+			.img2 {
+				
+				transform: translateZ(-10px);
+				animation: zhuan2 5.25s linear forwards 0.75s;
+			}
+			
+			.img3 {
+				
+				transform: translateZ(-20px);
+				animation: zhuan3 4.5s linear forwards 1.5s;
+			}
+			
+			.img4 {
+				
+				transform: translateZ(-30px);
+				animation: zhuan4 3.75s linear forwards 2.25s;
+			}
+			
+			.img5 {
+				
+				transform: translateZ(-40px);
+				animation: zhuan5 3s linear forwards 3s;
+			}
+			
+			.img6 {
+				
+				transform: translateZ(-50px);
+				animation: zhuan6 2.25s linear forwards 3.75s;
+			}
+			
+			.img7 {
+				
+				transform: translateZ(-60px);
+				animation: zhuan7 1.5s linear forwards 4.5s;
+			}
+			
+			.img8 {
+				
+				transform: translateZ(-70px);
+				animation: zhuan8 0.75s linear forwards 5.25s;
+			}
+			
+			@keyframes zhuan1 {
+				14.28% {
+					transform: translateX(-300px) translateZ(300px) rotateY(-45deg);
+				}
+				28.56% {
+					transform: translateX(-424.2px) translateZ(0px) rotateY(-90deg);
+				}
+				42.84% {
+					transform: translateX(-300px) translateZ(-300px) rotateY(-135deg);
+				}
+				57.12% {
+					transform: translateX(-0px) translateZ(-424.2px) rotateY(-180deg);
+				}
+				71.40% {
+					transform: translateX(300px) translateZ(-300px) rotateY(-225deg);
+				}
+				85.68% {
+					transform: translateX(424.2px) translateZ(0px) rotateY(-270deg);
+				}
+				100% {
+					transform: translateX(300px) translateZ(300px) rotateY(-315deg);
+				}
+			}
+			
+			@keyframes zhuan2 {
+				16.6% {
+					transform: translateX(-300px) translateZ(300px) rotateY(-45deg);
+				}
+				33.2% {
+					transform: translateX(-424.2px) translateZ(0px) rotateY(-90deg);
+				}
+				49.8% {
+					transform: translateX(-300px) translateZ(-300px) rotateY(-135deg);
+				}
+				66.4% {
+					transform: translateX(0px) translateZ(-424.2px) rotateY(-180deg);
+				}
+				83% {
+					transform: translateX(300px) translateZ(-300px) rotateY(-225deg);
+				}
+				100% {
+					transform: translateX(424.2px) translateZ(0px) rotateY(-270deg);
+				}
+			}
+			
+			@keyframes zhuan3 {
+				20% {
+					transform: translateX(-300px) translateZ(300px) rotateY(-45deg);
+				}
+				40% {
+					transform: translateX(-424.2px) translateZ(0px) rotateY(-90deg);
+				}
+				60% {
+					transform: translateX(-300px) translateZ(-300px) rotateY(-135deg);
+				}
+				80% {
+					transform: translateX(0px) translateZ(-424.2px) rotateY(-180deg);
+				}
+				100% {
+					transform: translateX(300px) translateZ(-300px) rotateY(-225deg);
+				}
+			}
+			
+			@keyframes zhuan4 {
+				25% {
+					transform: translateX(-300px) translateZ(300px) rotateY(-45deg);
+				}
+				50% {
+					transform: translateX(-424.2px) translateZ(0px) rotateY(-90deg);
+				}
+				75% {
+					transform: translateX(-300px) translateZ(-300px) rotateY(-135deg);
+				}
+				100% {
+					transform: translateX(0px) translateZ(-424.2px) rotateY(-180deg);
+				}
+			}
+			
+			@keyframes zhuan5 {
+				33.3% {
+					transform: translateX(-300px) translateZ(300px) rotateY(-45deg);
+				}
+				66.6% {
+					transform: translateX(-424.2px) translateZ(0px) rotateY(-90deg);
+				}
+				100% {
+					transform: translateX(-300px) translateZ(-300px) rotateY(-135deg);
+				}
+			}
+			
+			@keyframes zhuan6 {
+				50% {
+					transform: translateX(-300px) translateZ(300px) rotateY(-45deg);
+				}
+				100% {
+					transform: translateX(-424.2px) translateZ(0px) rotateY(-90deg);
+				}
+			}
+			@keyframes zhuan7{
+				100%{
+					transform: translateX(-300px) translateZ(300px) rotateY(-45deg);
+				}
+			}
+			@keyframes zhuan8{
+				100%{
+					transform: translateZ(424.2px);
+				}
+			}
+			
+		</style>
+	</head>
+
+	<body>
+		<div class="my-container">
+			<div class="photo">
+				<div class="container">
+					<div class="img img1">
+						<img src="./images/旋转相册1.jpeg"/>
+					</div>
+					<div class="img img2">
+						<img src="./images/旋转相册2.jpeg"/>
+					</div>
+					<div class="img img3">
+						<img src="./images/旋转相册3.jpeg"/>
+					</div>
+					<div class="img img4">
+						<img src="./images/旋转相册4.png"/>
+					</div>
+					<div class="img img5">
+						<img src="./images/旋转相册5.jpg"/>
+					</div>
+					<div class="img img6">
+						<img src="./images/旋转相册6.jpg"/>
+					</div>
+					<div class="img img7">
+						<img src="./images/旋转相册7.jpg"/>
+					</div>
+					<div class="img img8">
+						<img src="./images/旋转相册8.jpg"/>
+					</div>
+					<p style="border-radius:600px;">
+						
+					</p>
+				</div>
+			</div>
+		</div>
+	</body>
+
+</html>

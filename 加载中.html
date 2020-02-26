@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			*{
+				margin: 0px;
+				padding: 0px;
+			}
+			html,body{
+				height: 100%;
+				width: 100%;
+				align-items: center;
+                display: flex;
+			}
+			.box{
+				height: 150px;
+				width: 150px;				
+				display: block;
+				margin: 0px auto;
+			}
+			.box:before{
+				content: "";
+				height: 100%;
+				width: 100%;
+				display: inline-block;
+				/*background-color: black;*/
+				border-radius: 20px;
+				animation: shang .75s linear infinite;
+			}
+			.box:after{
+				content: "";
+				height: 10%;
+				width: 100%;
+				display: inline-block;
+				background-color: gray;
+				border-radius: 50%;
+				margin-top: 15px;
+				animation: xia .75s linear infinite;
+			}
+			@keyframes shang{
+				0%{
+					
+					background:-webkit-radial-gradient(center center ,150px 150px,yellow,red);
+				}
+				50%{
+					transform: translateY(-5px) rotate(-45deg);
+					border-bottom-left-radius: 80px;
+					background:-webkit-radial-gradient(center center ,150px 150px,yellow,red);
+				}
+				100%{
+					transform: translateY(0px) rotate(-90deg);
+					background:-webkit-radial-gradient(center center ,150px 150px,yellow,red);
+				}
+			}
+			@keyframes xia{
+				50%{
+					transform: scale(1.2,1);
+				}
+				100%{
+					transform: scale(1,1);
+				}
+			}
+		</style>
+	</head>
+	<body>
+		<div class="box">
+			
+		</div>
+	</body>
+</html>

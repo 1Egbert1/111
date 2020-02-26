@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			* {
+				margin: 0px;
+				padding: 0px;
+			}
+			
+			.my-container {
+				height: 400px;
+				width: 700px;
+				margin: 100px auto;
+			}
+			
+			.photo {
+				height: 400px;
+				width: 700px;
+			}
+			
+			.container {
+				height: 400px;
+				width: 700px;
+				transform-style: preserve-3d;
+				transform: rotateX(0deg);
+			}
+			
+			ul {
+				list-style: none;
+			}
+			
+			li {
+				height: 12em;
+				width: 12em;
+				position: absolute;
+				top: 0em;
+				left: 0em;
+				border: 1.0em solid red;
+				border-radius: 6em;
+				box-sizing: border-box;
+				transform: translateZ(0px);
+			}
+			
+			li.blue {
+				top: 0em;
+				left: 0em;
+				border-color: rgb(1, 134, 198);
+			}
+			
+			li.blue.new {
+				transform: translateZ(20px);
+				border-color: transparent rgb(1, 134, 198) transparent transparent;
+			}
+			
+			li.yellow {
+				top: 5.7em;
+				left: 6.8em;
+				border-color: yellow;
+			}
+			
+			li.yellow.new {
+				transform: translateZ(18px);
+				border-color: yellow transparent transparent transparent;
+			}
+			
+			li.black {
+				top: 0em;
+				left: 13.6em;
+				border-color: black;
+			}
+			
+			li.green {
+				top: 5.7em;
+				left: 20.4em;
+				border-color: green;
+				transform: translateZ(-10px);
+			}
+			
+			li.green.new {
+				transform: translateZ(18px);
+				border-color: green transparent transparent transparent;
+			}
+			
+			li.red {
+				top: 0em;
+				left: 27.2em;
+				border-color: red;
+			}
+		</style>
+	</head>
+
+	<body>
+		<div class="my-container">
+			<div class="photo">
+				<div class="container">
+					<ul>
+						<li class="blue"></li>
+						<li class="blue new"></li>
+						<li class="yellow"></li>
+						<li class="yellow new"></li>
+						<li class="black"></li>
+						<li class="green"></li>
+						<li class="green new"></li>
+						<li class="red"></li>
+					</ul>
+				</div>
+
+			</div>
+		</div>
+
+	</body>
+
+</html>

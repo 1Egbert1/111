@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			* {
+				margin: 0px;
+				padding: 0px;
+			}
+			
+			html,
+			body {
+				height: 100%;
+				width: 100%;
+			}
+			
+			body {
+				display: flex;
+				justify-content: space-between;
+				flex-flow:wrap;
+			}
+			
+			.box {
+				display: flex;
+				height: 200px;
+				width: 200px;
+				border-radius: 20px;
+				border: 20px solid black;
+			}
+			
+			.circle {
+				height: 40px;
+				width: 40px;
+				border-radius: 20px;
+				border: 20px solid black;
+				box-sizing: border-box;
+			}
+			
+			.one {
+				height: 100%;
+				width: 100%;
+				display: flex;
+				align-items: center;
+				justify-content: center;
+			}
+			
+			.two {
+				height: 100%;
+				width: 100%;
+				display: flex;
+				flex-direction: column;
+				justify-content: space-around;
+				align-items: center;
+			}
+			
+			.three {
+				height: 100%;
+				width: 100%;
+				display: flex;
+				flex-direction: column;
+				justify-content: space-around;
+				align-items: center;
+				padding: 0px 5px;
+			}
+			
+			.four {
+				height: 100%;
+				width: 100%;
+				display: flex;
+				justify-content: space-around;
+			}
+			
+			.four .column {
+				display: flex;
+				flex-direction: column;
+				justify-content: space-around;
+			}
+			
+			.five {
+				height: 100%;
+				width: 100%;
+				display: flex;
+				justify-content: space-around;
+			}
+			
+			.five .column {
+				display: flex;
+				flex-direction: column;
+				justify-content: space-around;
+			}
+			
+			.five .center {
+				position: absolute;
+				display: flex;
+				align-self: center;
+			}
+			
+			.six {
+				height: 100%;
+				width: 100%;
+				display: flex;
+				justify-content: space-around;
+			}
+			
+			.six .column {
+				display: flex;
+				flex-direction: column;
+				justify-content: space-around;
+			}
+			
+			.seven {
+				height: 100%;
+				width: 100%;
+				display: flex;
+				flex-direction: column;
+				justify-content: space-around;
+				align-content: center;
+			}
+			
+			.seven .column {
+				display: flex;
+				flex-direction: column;
+				justify-content: space-around;
+			}
+			
+			.seven .circle {
+				width: 34px;
+				height: 34px;
+				border-radius: 17px;
+				border: 17px solid black;
+				box-sizing: border-box;
+			}
+			
+			.eight {
+				height: 100%;
+				width: 100%;
+				display: flex;
+				justify-content: space-around;
+			}
+			
+			.eight .column {
+				display: flex;
+				flex-direction: column;
+				justify-content: space-around;
+			}
+			
+			.nine {
+				height: 100%;
+				width: 100%;
+				display: flex;
+				justify-content: space-around;
+			}
+			
+			.nine .column {
+				display: flex;
+				flex-direction: column;
+				justify-content: space-around;
+			}
+		</style>
+	</head>
+
+	<body>
+		<div class="box">
+			<div class="one">
+				<div class="circle"></div>
+			</div>
+		</div>
+		<div class="box">
+			<div class="two">
+				<div class="circle"></div>
+				<div class="circle"></div>
+			</div>
+		</div>
+		<div class="box">
+			<div class="three">
+				<div class="circle" style="align-self: flex-start;"></div>
+				<div class="circle"></div>
+				<div class="circle" style="align-self: flex-end;"></div>
+			</div>
+		</div>
+		<div class="box">
+			<div class="four">
+				<div class="column">
+					<div class="circle"></div>
+					<div class="circle"></div>
+				</div>
+				<div class="column">
+					<div class="circle"></div>
+					<div class="circle"></div>
+				</div>
+			</div>
+		</div>
+		<div class="box">
+			<div class="five">
+				<div class="column">
+					<div class="circle"></div>
+					<div class="circle"></div>
+				</div>
+				<div class="column">
+					<div class="circle"></div>
+					<div class="circle"></div>
+				</div>
+				<div class="center">
+					<div class="circle"></div>
+				</div>
+			</div>
+		</div>
+		<div class="box">
+			<div class="six">
+				<div class="column">
+					<div class="circle"></div>
+					<div class="circle"></div>
+					<div class="circle"></div>
+				</div>
+				<div class="column">
+					<div class="circle"></div>
+					<div class="circle"></div>
+					<div class="circle"></div>
+				</div>
+			</div>
+		</div>
+		<div class="box">
+			<div class="seven">
+				<div class="three">
+					<div class="circle" style="align-self: flex-start; height: 32px; width: 32px;border-radius:16px; box-sizing: border-box;"></div>
+					<div class="circle"></div>
+					<div class="circle" style="align-self: flex-end; height: 32px; width: 32px;border-radius:16px; 	box-sizing: border-box;"></div>
+				</div>
+				<div class="four">
+					<div class="column">
+						<div class="circle"></div>
+						<div class="circle"></div>
+					</div>
+					<div class="column">
+						<div class="circle"></div>
+						<div class="circle"></div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="box">
+			<div class="eight">
+				<div class="column">
+					<div class="circle"></div>
+					<div class="circle"></div>
+					<div class="circle"></div>
+					<div class="circle"></div>
+				</div>
+				<div class="column">
+					<div class="circle"></div>
+					<div class="circle"></div>
+					<div class="circle"></div>
+					<div class="circle"></div>
+				</div>
+			</div>
+		</div>
+		<div class="box">
+			<div class="nine">
+				<div class="column">
+					<div class="circle"></div>
+					<div class="circle"></div>
+					<div class="circle"></div>
+				</div>
+				<div class="column">
+					<div class="circle"></div>
+					<div class="circle"></div>
+					<div class="circle"></div>
+				</div>
+				<div class="column">
+					<div class="circle"></div>
+					<div class="circle"></div>
+					<div class="circle"></div>
+				</div>
+			</div>
+		</div>
+	</body>
+
+</html>
